@@ -13,9 +13,17 @@
     zookeeper_url: http://mirror.cc.columbia.edu/pub/software/apache/zookeeper/zookeeper-3.4.12/zookeeper-3.4.12.tar.gz
   become: yes
   become_method: sudo
-# pre_tasks:
-#   - name: register RHEL7.5
-#     command: "/usr/bin/subscription-manager register --username <name> --password <password> --auto-attach"
+  pre_tasks:
+    - name: register RHEL7 repo 
+      command: "/usr/bin/subscription-manager repos --enable=rhel-7-server-rpms --enable=rhel-7-server-extras-rpms --enable=rhel-7-server-optional-rpms"
+    - name: register RHEL7 RHSCL Repo
+      shell: "/usr/bin/subscription-manager repos --enable=rhel-server-rhscl-7-rpms"
+    - name: register RHEL7 DevTools
+      shell: "/usr/bin/subscription-manager repos --enable=rhel-7-server-devtools-rpms"
+    - name: list RHEL enabled repos
+      shell: "/usr/bin/subscription-manager repos --list-enabled"
+      register: enabled_repos
+
   tasks:
     - name: install libselinux-python
       yum:
@@ -58,21 +66,16 @@
       shell: pip install gdown
     - name: use gdown to download jdk1.8.x from google drive
       shell: gdown https://drive.google.com/uc?id=1bSq7I3MY3SvY4MHfowEyNq3l-sFMJa8B
-#   - name: download spark 2.4 with hadoop 2.7
-#     shell: wget http://apache.mirrors.lucidnetworks.net/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz -P /tmp
-#   - name: unpack spark
-#     become: yes
-#     become_method: sudo
-#     unarchive:
-#       src: /tmp/spark-2.4.0-bin-hadoop2.7.tgz
-#       dest: /opt
-#     shell: tar -xvzf /opt/spark-2.4.0-bin-hadoop2.7.tgz
+
+#     shell: gdown https://drive.google.com/open?id=1bSq7I3MY3SvY4MHfowEyNq3l-sFMJa8B  --> change open?id to uc?
+
+#    - name: enable rhscl
+#      shell: subscription-manager repos --enable rhel-7-server-optional-rpms --enable rhel-server-rhscl-7-rpms
+    - name: install development
+      shell: yum -y install @development
+    - name: install python3.6
+      shell: yum -y install rh-python36
       
-#    - name: start spark
-#      shell:  /opt/
-
-#     shell: gdown https://drive.google.com/open?id=1bSq7I3MY3SvY4MHfowEyNq3l-sFMJa8B  --> change open?id to uc?id
-
 #   - name: use gdown to download and build local repo
 #     shell: gdown https://drive.google.com/uc?id=139Z0MfyT0WVWIzP_uwM2KxPCrfYs_vUV
 
