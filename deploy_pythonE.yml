@@ -11,6 +11,8 @@
     scala_url: https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.tgz
     zookeeper_archive: zookeeper-3.4.12.tar.gz
     zookeeper_url: http://mirror.cc.columbia.edu/pub/software/apache/zookeeper/zookeeper-3.4.12/zookeeper-3.4.12.tar.gz
+  vars_files:
+    - ~/RHACCOUNT
   become: yes
   become_method: sudo
   pre_tasks:
