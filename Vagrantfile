@@ -14,8 +14,8 @@ Vagrant.configure("2") do |config|
   config.vm.define "pythonERH7" do |pythonERH7|
     pythonERH7.vm.box = "RH7.5_baserepo"
     pythonERH7.vm.hostname = "pythonERH7"
-    pythonERH7.vm.network "private_network", ip: "192.168.60.142"
-    pythonERH7.vm.provision "shell", :inline => "sudo echo '192.168.60.142 pythonERH7.local pythonERH7' >> /etc/hosts"
+    pythonERH7.vm.network "private_network", ip: "192.168.60.144"
+    pythonERH7.vm.provision "shell", :inline => "sudo echo '192.168.60.144 pythonERH7.local pythonERH7' >> /etc/hosts"
     pythonERH7.vm.provision "ansible" do |ansible|
       ansible.playbook = "deploy_pythonE.yml"
       ansible.inventory_path = "vagrant_hosts"
