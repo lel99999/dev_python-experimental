@@ -11,12 +11,12 @@ Vagrant.configure("2") do |config|
 #   trigger.run = { path:"subscription-manager register --username <username> --password <password> --auto-attach"}
 # end
 
-  config.vm.define "pythonE_RH7" do |pythonE_RH7|
-    pythonE_RH7.vm.box = "RH7.5_baserepo"
-    pythonE_RH7.vm.hostname = "pythonE_RH7"
-    pythonE_RH7.vm.network "private_network", ip: "192.168.60.142"
-    pythonE_RH7.vm.provision "shell", :inline => "sudo echo '192.168.60.142 pythonE_RH7.local pythonE_RH7' >> /etc/hosts"
-    pythonE_RH7.vm.provision "ansible" do |ansible|
+  config.vm.define "pythonERH7" do |pythonERH7|
+    pythonERH7.vm.box = "RH7.5_baserepo"
+    pythonERH7.vm.hostname = "pythonERH7"
+    pythonERH7.vm.network "private_network", ip: "192.168.60.142"
+    pythonERH7.vm.provision "shell", :inline => "sudo echo '192.168.60.142 pythonERH7.local pythonERH7' >> /etc/hosts"
+    pythonERH7.vm.provision "ansible" do |ansible|
       ansible.playbook = "deploy_pythonE.yml"
       ansible.inventory_path = "vagrant_hosts"
       #ansible.tags = ansible_tags
