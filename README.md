@@ -15,6 +15,7 @@ Python System Tools and Experimental Work
 #### GUI
 - Basics
   [https://github.com/Dvlv/Tkinter-By-Example](https://github.com/Dvlv/Tkinter-By-Example) <br/>
+  - Python >= 3.9.x have all black background issues
 
 - Pyenv Notes
   - [https://xogk39.medium.com/install-tkinter-on-mac-pyenv-f112bd3f4663](https://xogk39.medium.com/install-tkinter-on-mac-pyenv-f112bd3f4663) <br/> 
