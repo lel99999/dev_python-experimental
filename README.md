@@ -2,7 +2,7 @@
 Python System Tools and Experimental Work
 
 #### Design Considerations
-- Building implicit interfaces with python protocol classes
+- Building implicit interfaces with python protocol classes <br/>
   [https://www.pythontutorial.net/python-oop/python-protocol/](https://www.pythontutorial.net/python-oop/python-protocol/) <br/>
   [https://andrewbrookins.com/technology/building-implicit-interfaces-in-python-with-protocol-classes/](https://andrewbrookins.com/technology/building-implicit-interfaces-in-python-with-protocol-classes/) <br/>
 
