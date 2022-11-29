@@ -23,3 +23,7 @@ Python System Tools and Experimental Work
   
   - [https://github.com/marcelotduarte/cx_Freeze/issues/849](https://github.com/marcelotduarte/cx_Freeze/issues/849) <br/>
  
+#### Tkinter Errors
+- "Python may not be configured for Tk" <br/>
+  - Mac `$brew install python-tk` <br/>
+  - Linux `$yum install tk-devel` <br/>
